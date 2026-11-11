@@ -172,7 +172,7 @@
 
   // NEWS: the same file the app reads (news.json); the list above stays if it can not be read
   fetch("news.json", { cache: "no-store" }).then(r => r.json()).then(d => {
-    const items = (d.lines || []).filter(l => l && !/^IN DEVELOPMENT/.test(l) && !/SUB CHANNEL/.test(l));
+    const items = (d.lines || []).filter(l => l && !/^IN DEVELOPMENT/.test(l) && !/^SUB GETS/.test(l));
     if (!items.length) return;
     const ul = document.getElementById("newslist");
     ul.textContent = "";
