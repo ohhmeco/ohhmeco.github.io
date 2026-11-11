@@ -3,194 +3,192 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MICHELE BONOMI - DEVELOPER</title>
-<meta name="description" content="Michele Bonomi: computer scientist (quantum computing and AI), athlete (karate WKF), music maker (@meconsciously). Computer Science student at the University of Milan. Projects: STLTH://SAMPLER, a thesis on quantum machine learning.">
+<title>Michele Bonomi</title>
+<meta name="description" content="Michele Bonomi: Computer Science student at the University of Milan, prospective PhD student. Quantum machine learning and AI. Thesis on quantum machine learning for facial expression recognition.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #030703; --panel: #07120a; --grid: #0f2a16; --dim: #1f7a3a;
-    --main: #39ff6a; --bright: #c8ffd6; --amber: #ffb000;
+    --bg: #030703; --panel: #07120a; --grid: #0f2a16; --dim: #2c8a49;
+    --main: #39ff6a; --bright: #c8ffd6; --text: #b9e8c6; --amber: #ffb000;
   }
   * { box-sizing: border-box; }
-  html, body { margin: 0; background: var(--bg); color: var(--main); }
-  body {
-    font-family: "VT323", ui-monospace, monospace; font-size: 22px; line-height: 1.25;
-    text-transform: uppercase; letter-spacing: 0.04em;
-  }
+  html, body { margin: 0; background: var(--bg); color: var(--text); }
+  body { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 16px; line-height: 1.6; }
   body::after {
     content: ""; position: fixed; inset: 0; pointer-events: none;
-    background: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.28) 2px 3px);
+    background: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.18) 2px 3px);
   }
   a { color: var(--bright); }
-  .wrap { max-width: 980px; margin: 0 auto; padding: 24px 16px 64px; }
-  .bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px; border: 2px solid var(--dim); padding: 6px 12px; }
-  .bar a { text-decoration: none; margin-left: 16px; }
-  h1 { font-size: clamp(52px, 12vw, 120px); line-height: 0.9; margin: 36px 0 0; color: var(--main);
-       text-shadow: 6px 6px 0 rgba(57,255,106,0.22); }
-  .sub { color: var(--dim); font-size: 30px; margin: 4px 0 28px; }
-  .box { border: 2px solid var(--dim); background: var(--panel); padding: 14px 18px; margin: 22px 0; }
-  .term { min-height: 210px; white-space: pre-wrap; }
+  .px { font-family: "VT323", ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.04em; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 24px 16px 64px; }
+  .bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px; border: 2px solid var(--dim);
+         padding: 6px 12px; font-size: 20px; color: var(--main); }
+  .bar a { text-decoration: none; margin-left: 14px; }
+  header { margin: 40px 0 8px; }
+  h1 { font-size: clamp(48px, 10vw, 96px); line-height: 0.9; margin: 0; color: var(--main);
+       text-shadow: 5px 5px 0 rgba(57,255,106,0.2); }
+  .role { color: var(--bright); font-size: 17px; font-weight: 600; margin: 14px 0 2px; }
+  .aff { color: var(--text); margin: 0; }
+  .roles { color: var(--dim); font-size: 22px; margin: 6px 0 0; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 0; }
+  .key { border: 2px solid var(--main); padding: 6px 14px; text-decoration: none; color: var(--main); font-size: 20px; }
+  .key.lit { background: var(--main); color: var(--bg); }
+  .term { min-height: 120px; white-space: pre-wrap; color: var(--main); font-size: 21px; line-height: 1.25; }
   .term .cmd { color: var(--bright); }
-  .term a { color: var(--bright); }
   .cursor { display: inline-block; width: 0.6em; background: var(--main); animation: blink 0.9s steps(1) infinite; }
   @keyframes blink { 50% { opacity: 0; } }
-  h2 { font-size: 34px; margin: 42px 0 10px; color: var(--bright); }
+  h2 { font-size: 30px; margin: 44px 0 10px; color: var(--bright); font-weight: normal; }
   h2::before { content: "> "; color: var(--main); }
-  ul { list-style: none; padding: 0; margin: 0; }
-  li { padding: 3px 0; }
-  li::before { content: "- "; color: var(--dim); }
-  .project { display: grid; grid-template-columns: 200px 1fr; gap: 20px; align-items: start; text-decoration: none; color: var(--main); }
-  .project:hover, .project:focus-visible { border-color: var(--main); outline: none; }
+  .box { border: 2px solid var(--dim); background: var(--panel); padding: 14px 18px; margin: 14px 0; }
+  .box p { margin: 0 0 10px; } .box p:last-child { margin-bottom: 0; }
+  ul { padding-left: 20px; margin: 0; } li { padding: 2px 0; } li::marker { color: var(--dim); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; }
+  .tags li { border: 1px solid var(--dim); padding: 2px 10px; color: var(--bright); }
+  .entry { display: grid; grid-template-columns: 130px 1fr; gap: 4px 18px; }
+  .entry .when { color: var(--amber); }
+  .entry h3, .project h3 { margin: 0; font-size: 17px; color: var(--bright); }
+  .entry .where { color: var(--dim); }
+  .project { display: grid; grid-template-columns: 160px 1fr; gap: 18px; text-decoration: none; color: var(--text); }
+  .project:hover { border-color: var(--main); }
   .project img { width: 100%; display: block; border: 2px solid var(--dim); image-rendering: pixelated; }
-  .project h3 { font-size: 40px; margin: 0 0 4px; color: var(--bright); }
-  .project .tag { color: var(--amber); }
-  .project .go { display: inline-block; margin-top: 12px; border: 2px solid var(--main); padding: 6px 14px; }
-  .project:hover .go { background: var(--main); color: var(--bg); }
-  .keys { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
-  .key { border: 2px solid var(--main); padding: 10px 18px; text-decoration: none; color: var(--main); }
-  .key.lit { background: var(--main); color: var(--bg); }
-  footer { color: var(--dim); font-size: 18px; margin-top: 48px; }
+  .project .go { color: var(--main); font-size: 20px; }
+  .meta { color: var(--amber); font-size: 14px; }
+  footer { color: var(--dim); font-size: 14px; margin-top: 48px; }
   @media (max-width: 600px) {
-    body { font-size: 20px; }
-    .project { grid-template-columns: 1fr; }
-    .project img { max-width: 220px; }
+    .entry, .project { grid-template-columns: 1fr; }
+    .project img { max-width: 200px; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="bar"><span>OHHMECO://HOME</span><span><a href="#music">MUSIC</a><a href="#projects">PROJECTS</a><a href="stlth/">STLTH</a><a href="#contact">CONTACT</a></span></div>
+  <nav class="bar px"><span>OHHMECO://HOME</span><span><a href="#research">RESEARCH</a><a href="#education">EDUCATION</a><a href="#projects">PROJECTS</a><a href="#contact">CONTACT</a></span></nav>
 
-  <h1>MICHELE<br>BONOMI</h1>
-  <div class="sub" id="roles">COMPUTER SCIENTIST - ATHLETE - MUSIC MAKER</div>
+  <header>
+    <h1 class="px">Michele<br>Bonomi</h1>
+    <p class="role">Prospective PhD student in Computer Science</p>
+    <p class="aff">Computer Science, Università degli Studi di Milano</p>
+    <p class="roles px" id="roles">Computer Scientist - Athlete - Music Maker</p>
+    <div class="links px">
+      <a class="key lit" href="mailto:michele.bonomi00@gmail.com">E-mail</a>
+      <a class="key" href="https://github.com/ohhmeco">GitHub</a>
+      <a class="key" href="stlth/">STLTH://SAMPLER</a>
+    </div>
+  </header>
 
-  <div class="box term" id="term" aria-label="terminal"></div>
+  <div class="box term px" id="term" aria-label="terminal"></div>
 
-  <div class="keys">
-    <a class="key lit" href="stlth/">OPEN STLTH://SAMPLER</a>
-    <a class="key" href="https://github.com/ohhmeco">GITHUB</a>
+  <h2 id="about" class="px">About</h2>
+  <div class="box">
+    <p>I am a Computer Science student at the University of Milan, working on quantum computing and artificial intelligence.
+       My thesis studies quantum machine learning applied to facial expression recognition.
+       I am looking towards a PhD in Computer Science, in quantum machine learning and AI.</p>
+    <p>Outside research I compete in karate and make music; I also design and build
+       <a href="stlth/">STLTH://SAMPLER</a>, a music production app for Android, on my own.</p>
   </div>
 
-  <div id="rolebox">
-    <section data-role="COMPUTER SCIENTIST">
-      <h2 id="cs">COMPUTER SCIENTIST</h2>
-      <div class="box">
-        <ul>
-          <li>QUANTUM COMPUTER SCIENCE AND AI</li>
-          <li>COMPUTER SCIENCE STUDENT AT THE UNIVERSITY OF MILAN (UNIVERSITA DEGLI STUDI DI MILANO)</li>
-          <li>NOW: MY THESIS ON QUANTUM MACHINE LEARNING FOR FACIAL EXPRESSION RECOGNITION</li>
-        </ul>
-      </div>
-    </section>
-    <section data-role="ATHLETE">
-      <h2 id="athlete">ATHLETE</h2>
-      <div class="box">
-        <ul>
-          <li>KARATE WKF, -75 KG</li>
-          <li>NATIONAL AND INTERNATIONAL COMPETITOR</li>
-        </ul>
-      </div>
-    </section>
-    <section data-role="MUSIC MAKER">
-      <h2 id="music">MUSIC MAKER</h2>
-      <div class="box">
-        <ul>
-          <li>BEATS AS @MECONSCIOUSLY</li>
-          <li>I MAKE STLTH://SAMPLER, THE APP I MAKE MY BEATS WITH</li>
-        </ul>
-        <div class="keys">
-          <a class="key lit" href="https://www.youtube.com/@meconsciously">YOUTUBE</a>
-          <a class="key" href="https://www.tiktok.com/@meconsciously">TIKTOK</a>
-          <a class="key" href="https://www.instagram.com/meconsciously/">INSTAGRAM</a>
-        </div>
-      </div>
-    </section>
+  <h2 id="research" class="px">Research interests</h2>
+  <div class="box">
+    <ul class="tags">
+      <li>Quantum machine learning</li>
+      <li>Quantum computing</li>
+      <li>Artificial intelligence</li>
+      <li>Facial expression recognition</li>
+    </ul>
   </div>
 
-  <h2 id="projects">PROJECTS</h2>
+  <h2 id="thesis" class="px">Current work</h2>
+  <div class="box entry">
+    <div class="when">In progress</div>
+    <div>
+      <h3>Thesis: quantum machine learning for facial expression recognition</h3>
+      <div class="where">Università degli Studi di Milano, Computer Science</div>
+    </div>
+  </div>
+
+  <h2 id="education" class="px">Education</h2>
+  <div class="box entry">
+    <div class="when">Ongoing</div>
+    <div>
+      <h3>Computer Science</h3>
+      <div class="where">Università degli Studi di Milano</div>
+    </div>
+  </div>
+
+  <h2 id="projects" class="px">Projects</h2>
   <a class="box project" href="stlth/">
     <img src="stlth/img/02_home.png" alt="STLTH://SAMPLER, the pads">
     <div>
       <h3>STLTH://SAMPLER</h3>
-      <div class="tag">ANDROID - C++ / JUCE</div>
-      <ul>
-        <li>16 PADS: SAMPLE, CHOP, PITCH, ADSR, WARP ON THE BEAT</li>
-        <li>PATTERN SEQUENCER AND SONG PLAYLIST</li>
-        <li>MIXER WITH GROUPS, EFFECTS ON EVERY TRACK AND ON THE MASTER</li>
-        <li>DJ: TWO DECKS, CROSSFADER, CUES, SYNC</li>
-        <li>EXPORT WAV AND VIDEO</li>
-      </ul>
-      <span class="go">THE PAGE OF STLTH &gt;</span>
+      <div class="meta">Android - C++ / JUCE - sole developer</div>
+      <p>A music production app: sampler with 16 pads, pattern sequencer and song arrangement, mixer with effects,
+         two DJ decks, WAV and video export. Real-time audio engine, digital signal processing and the full release on Google Play.</p>
+      <span class="go px">The page of STLTH &gt;</span>
     </div>
   </a>
 
+  <h2 id="beyond" class="px">Beyond research</h2>
+  <div class="box entry">
+    <div class="when">Athlete</div>
+    <div>
+      <h3>Karate WKF, -75 kg</h3>
+      <div class="where">National and international competitor</div>
+    </div>
+  </div>
+  <div class="box entry">
+    <div class="when">Music maker</div>
+    <div>
+      <h3>Beats as @meconsciously</h3>
+      <div class="where">
+        <a href="https://www.youtube.com/@meconsciously">YouTube</a> -
+        <a href="https://www.tiktok.com/@meconsciously">TikTok</a> -
+        <a href="https://www.instagram.com/meconsciously/">Instagram</a>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="contact" class="px">Contact</h2>
   <div class="box">
-    <h3 style="font-size:40px;margin:0 0 4px;color:var(--bright)">THESIS: QUANTUM MACHINE LEARNING</h3>
-    <div style="color:var(--amber)">IN PROGRESS - UNIVERSITY OF MILAN, COMPUTER SCIENCE</div>
     <ul>
-      <li>QUANTUM MACHINE LEARNING APPLIED TO FACIAL EXPRESSION RECOGNITION</li>
+      <li>E-mail: <a href="mailto:michele.bonomi00@gmail.com">michele.bonomi00@gmail.com</a></li>
+      <li>GitHub: <a href="https://github.com/ohhmeco">ohhmeco</a></li>
     </ul>
   </div>
 
-  <h2 id="contact">CONTACT</h2>
-  <div class="box">
-    <ul>
-      <li>MAIL: <a href="mailto:michele.bonomi00@gmail.com">MICHELE.BONOMI00@GMAIL.COM</a></li>
-      <li>GITHUB: <a href="https://github.com/ohhmeco">OHHMECO</a></li>
-      <li>YOUTUBE: <a href="https://www.youtube.com/@meconsciously">@MECONSCIOUSLY</a></li>
-      <li>TIKTOK: <a href="https://www.tiktok.com/@meconsciously">@MECONSCIOUSLY</a></li>
-      <li>INSTAGRAM: <a href="https://www.instagram.com/meconsciously/">@MECONSCIOUSLY</a></li>
-    </ul>
-  </div>
-
-  <footer>
-    MICHELE BONOMI - <a href="stlth/">STLTH://SAMPLER</a> - <a href="stlth/privacy.html">STLTH PRIVACY</a>
-  </footer>
+  <footer>Michele Bonomi - <a href="stlth/">STLTH://SAMPLER</a> - <a href="stlth/privacy.html">STLTH privacy</a></footer>
 </div>
 
 <script>
   // the three roles, in a random order at every visit
-  const roles = ["COMPUTER SCIENTIST", "ATHLETE", "MUSIC MAKER"];
+  const roles = ["Computer Scientist", "Athlete", "Music Maker"];
   for (let r = roles.length - 1; r > 0; r--) { const j = Math.floor(Math.random() * (r + 1)); [roles[r], roles[j]] = [roles[j], roles[r]]; }
   document.getElementById("roles").textContent = roles.join(" - ");
-  const box = document.getElementById("rolebox");
-  for (const r of roles) box.appendChild(box.querySelector('[data-role="' + r + '"]'));
+
   const lines = [
     ["cmd", "whoami"],
-    ["out", "MICHELE BONOMI. " + roles.join(", ") + "."],
-    ["out", "COMPUTER SCIENCE STUDENT, UNIVERSITY OF MILAN."],
-    ["cmd", "ls projects"],
-    ["link", "STLTH://SAMPLER", "stlth/"],
-    ["out", "THESIS: QUANTUM MACHINE LEARNING (IN PROGRESS)"],
-    ["cmd", "open stlth"],
+    ["out", "Michele Bonomi. Computer Science, University of Milan."],
+    ["cmd", "cat research"],
+    ["out", "Quantum machine learning - facial expression recognition"],
   ];
   const term = document.getElementById("term");
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let i = 0;
   function cursor() { const c = document.createElement("span"); c.className = "cursor"; c.textContent = " "; return c; }
-  function finish() {
-    const row = document.createElement("div");
-    const a = document.createElement("a"); a.href = "stlth/"; a.textContent = "> STLTH://SAMPLER - TAP TO OPEN";
-    row.appendChild(a); term.appendChild(row);
-    term.appendChild(document.createTextNode("> ")); term.appendChild(cursor());
-  }
   function next() {
-    if (i >= lines.length) { finish(); return; }
-    const [kind, text, href] = lines[i++];
+    if (i >= lines.length) { term.appendChild(document.createTextNode("> ")); term.appendChild(cursor()); return; }
+    const [kind, text] = lines[i++];
     const row = document.createElement("div");
     if (kind === "cmd") row.className = "cmd";
-    let target = row;
-    if (kind === "link") { target = document.createElement("a"); target.href = href; row.appendChild(target); }
     term.appendChild(row);
-    const full = (kind === "cmd" ? "> " : "") + text.toUpperCase();
-    if (reduce) { target.textContent = full; next(); return; }
+    const full = (kind === "cmd" ? "> " : "") + text;
+    if (reduce) { row.textContent = full; next(); return; }
     let k = kind === "cmd" ? 2 : 0;
-    target.textContent = full.slice(0, k);
+    row.textContent = full.slice(0, k);
     const tick = setInterval(() => {
       k += kind === "cmd" ? 1 : 4;
-      target.textContent = full.slice(0, k);
+      row.textContent = full.slice(0, k);
       if (k >= full.length) { clearInterval(tick); setTimeout(next, kind === "cmd" ? 280 : 140); }
     }, kind === "cmd" ? 70 : 14);
   }
