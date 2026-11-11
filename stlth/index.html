@@ -53,13 +53,19 @@
   .key { border: 2px solid var(--main); padding: 10px 18px; text-decoration: none; color: var(--main); }
   .key.lit { background: var(--main); color: var(--bg); }
   .key.amber { border-color: var(--amber); color: var(--amber); }
+  .news { border-color: var(--amber); }
+  .news h3 { margin: 0 0 8px; color: var(--amber); font-size: 26px; font-weight: normal; }
+  .news li::before { content: "+ "; color: var(--amber); }
+  .news .n { color: var(--bright); }
+  .news p { margin: 10px 0 0; color: var(--dim); }
+  .bar a.newslink { color: var(--amber); }
   footer { color: var(--dim); font-size: 18px; margin-top: 48px; }
   @media (max-width: 520px) { body { font-size: 20px; } .shots img { width: 180px; } }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="bar"><span><a href="../" style="margin-left:0">HOME</a> / STLTH://SAMPLER</span><span><a href="#shots">SCREENS</a><a href="#plans">PRO / SUB</a></span></div>
+  <div class="bar"><span><a href="../" style="margin-left:0">HOME</a> / STLTH://SAMPLER</span><span><a href="#news" class="newslink">NEWS</a><a href="#shots">SCREENS</a><a href="#plans">PRO / SUB</a></span></div>
 
   <h1>STLTH</h1>
   <div class="sub">://SAMPLER &nbsp; A LITTLE HACKING TOOL TO MAKE MUSIC</div>
@@ -69,6 +75,20 @@
   <div class="keys">
     <a class="key lit" href="https://play.google.com/store/apps/details?id=com.michelebonomi.stlth">GET IT ON GOOGLE PLAY</a>
     <a class="key amber" href="https://t.me/+w5EQkc11S9QyOGNk">SUB CHANNEL</a>
+  </div>
+
+  <h2 id="news">NEWS</h2>
+  <div class="box news">
+    <h3>IN DEVELOPMENT</h3>
+    <ul id="newslist">
+      <li><span class="n">QUANTUM ECHO:</span> EVERY ECHO IS A QUBIT, FORWARD OR BACKWARDS</li>
+      <li><span class="n">VINYL:</span> AN OLD RECORD - DUST, HISS, WOW, A WORN TONE</li>
+      <li><span class="n">MOTION:</span> CHORUS, FLANGER, PUMP IN TIME</li>
+      <li><span class="n">AUTO MASTER:</span> IT LISTENS TO YOUR MIX AND MASTERS IT</li>
+      <li><span class="n">HUM ONE:</span> SING A MELODY, IT COMES BACK AS AN INSTRUMENT</li>
+      <li><span class="n">PAD BANKS:</span> A B C D, 64 PADS (PRO / SUB)</li>
+    </ul>
+    <p id="newsfoot">SUB GETS THE NEW PLUGINS FIRST. SAY WHAT YOU WANT NEXT: <a href="https://t.me/+w5EQkc11S9QyOGNk">SUB CHANNEL</a>.</p>
   </div>
 
   <h2>WHAT IT DOES</h2>
@@ -129,7 +149,7 @@
     ["cmd", "ls"],
     ["out", "PADS  SAMPLE  PAT  SONG  MIXER  DJ  FX"],
     ["cmd", "news"],
-    ["out", "IN DEVELOPMENT: QUANTUM ECHO, VINYL, MOTION, AUTO MASTER, HUM ONE"],
+    ["out", "IN DEVELOPMENT: QUANTUM ECHO, VINYL, MOTION, AUTO MASTER, HUM ONE, PAD BANKS"],
   ];
   const term = document.getElementById("term");
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -152,6 +172,20 @@
     }, kind === "cmd" ? 70 : 14);
   }
   next();
+
+  // NEWS: the same file the app reads (news.json); the list above stays if it can not be read
+  fetch("news.json", { cache: "no-store" }).then(r => r.json()).then(d => {
+    const items = (d.lines || []).filter(l => l && !/^IN DEVELOPMENT/.test(l) && !/SUB CHANNEL/.test(l));
+    if (!items.length) return;
+    const ul = document.getElementById("newslist");
+    ul.textContent = "";
+    for (const l of items) {
+      const li = document.createElement("li"), k = l.indexOf(":");
+      if (k > 0) { const n = document.createElement("span"); n.className = "n"; n.textContent = l.slice(0, k + 1); li.appendChild(n); li.appendChild(document.createTextNode(l.slice(k + 1))); }
+      else li.textContent = l;
+      ul.appendChild(li);
+    }
+  }).catch(() => {});
 </script>
 </body>
 </html>
