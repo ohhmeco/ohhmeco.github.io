@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MICHELE BONOMI - DEVELOPER</title>
-<meta name="description" content="Michele Bonomi, computer scientist: quantum computing and AI. Computer Science student at the University of Milan. Projects: STLTH://SAMPLER, a thesis on quantum machine learning.">
+<meta name="description" content="Michele Bonomi: computer scientist (quantum computing and AI), athlete (karate WKF), music maker (@meconsciously). Computer Science student at the University of Milan. Projects: STLTH://SAMPLER, a thesis on quantum machine learning.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
@@ -61,7 +61,7 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="bar"><span>OHHMECO://HOME</span><span><a href="#projects">PROJECTS</a><a href="stlth/">STLTH</a><a href="#contact">CONTACT</a></span></div>
+  <div class="bar"><span>OHHMECO://HOME</span><span><a href="#music">MUSIC</a><a href="#projects">PROJECTS</a><a href="stlth/">STLTH</a><a href="#contact">CONTACT</a></span></div>
 
   <h1>MICHELE<br>BONOMI</h1>
   <div class="sub" id="roles">COMPUTER SCIENTIST - ATHLETE - MUSIC MAKER</div>
@@ -73,14 +73,40 @@
     <a class="key" href="https://github.com/ohhmeco">GITHUB</a>
   </div>
 
-  <h2 id="about">ABOUT</h2>
-  <div class="box">
-    <ul>
-      <li>COMPUTER SCIENTIST IN QUANTUM COMPUTER SCIENCE AND AI</li>
-      <li>COMPUTER SCIENCE STUDENT AT THE UNIVERSITY OF MILAN (UNIVERSITA DEGLI STUDI DI MILANO)</li>
-      <li>NOW: MY THESIS ON QUANTUM MACHINE LEARNING FOR FACIAL EXPRESSION RECOGNITION</li>
-      <li>INDIE SOLO DEVELOPER OF STLTH://SAMPLER</li>
-    </ul>
+  <div id="rolebox">
+    <section data-role="COMPUTER SCIENTIST">
+      <h2 id="cs">COMPUTER SCIENTIST</h2>
+      <div class="box">
+        <ul>
+          <li>QUANTUM COMPUTER SCIENCE AND AI</li>
+          <li>COMPUTER SCIENCE STUDENT AT THE UNIVERSITY OF MILAN (UNIVERSITA DEGLI STUDI DI MILANO)</li>
+          <li>NOW: MY THESIS ON QUANTUM MACHINE LEARNING FOR FACIAL EXPRESSION RECOGNITION</li>
+        </ul>
+      </div>
+    </section>
+    <section data-role="ATHLETE">
+      <h2 id="athlete">ATHLETE</h2>
+      <div class="box">
+        <ul>
+          <li>KARATE WKF, -75 KG</li>
+          <li>NATIONAL AND INTERNATIONAL COMPETITOR</li>
+        </ul>
+      </div>
+    </section>
+    <section data-role="MUSIC MAKER">
+      <h2 id="music">MUSIC MAKER</h2>
+      <div class="box">
+        <ul>
+          <li>BEATS AS @MECONSCIOUSLY</li>
+          <li>I MAKE STLTH://SAMPLER, THE APP I MAKE MY BEATS WITH</li>
+        </ul>
+        <div class="keys">
+          <a class="key lit" href="https://www.youtube.com/@meconsciously">YOUTUBE</a>
+          <a class="key" href="https://www.tiktok.com/@meconsciously">TIKTOK</a>
+          <a class="key" href="https://www.instagram.com/meconsciously/">INSTAGRAM</a>
+        </div>
+      </div>
+    </section>
   </div>
 
   <h2 id="projects">PROJECTS</h2>
@@ -113,6 +139,9 @@
     <ul>
       <li>MAIL: <a href="mailto:michele.bonomi00@gmail.com">MICHELE.BONOMI00@GMAIL.COM</a></li>
       <li>GITHUB: <a href="https://github.com/ohhmeco">OHHMECO</a></li>
+      <li>YOUTUBE: <a href="https://www.youtube.com/@meconsciously">@MECONSCIOUSLY</a></li>
+      <li>TIKTOK: <a href="https://www.tiktok.com/@meconsciously">@MECONSCIOUSLY</a></li>
+      <li>INSTAGRAM: <a href="https://www.instagram.com/meconsciously/">@MECONSCIOUSLY</a></li>
     </ul>
   </div>
 
@@ -126,6 +155,8 @@
   const roles = ["COMPUTER SCIENTIST", "ATHLETE", "MUSIC MAKER"];
   for (let r = roles.length - 1; r > 0; r--) { const j = Math.floor(Math.random() * (r + 1)); [roles[r], roles[j]] = [roles[j], roles[r]]; }
   document.getElementById("roles").textContent = roles.join(" - ");
+  const box = document.getElementById("rolebox");
+  for (const r of roles) box.appendChild(box.querySelector('[data-role="' + r + '"]'));
   const lines = [
     ["cmd", "whoami"],
     ["out", "MICHELE BONOMI. " + roles.join(", ") + "."],
