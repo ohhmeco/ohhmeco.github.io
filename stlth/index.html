@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STLTH://SAMPLER</title>
+<meta name="description" content="STLTH: make music. Sampler, beat maker, song playlist and DJ decks for live sets, in your pocket.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #030703; --panel: #07120a; --grid: #0f2a16; --dim: #1f7a3a;
+    --main: #39ff6a; --bright: #c8ffd6; --amber: #ffb000; --red: #ff3d5a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--main); }
+  body {
+    font-family: "VT323", ui-monospace, monospace; font-size: 22px; line-height: 1.25;
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  /* the scanlines of the screen */
+  body::after {
+    content: ""; position: fixed; inset: 0; pointer-events: none;
+    background: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.28) 2px 3px);
+  }
+  a { color: var(--bright); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 24px 16px 64px; }
+  .bar { display: flex; justify-content: space-between; border: 2px solid var(--dim); padding: 6px 12px; }
+  .bar a { text-decoration: none; margin-left: 16px; }
+  h1 { font-size: clamp(64px, 16vw, 150px); line-height: 0.9; margin: 36px 0 0; color: var(--main);
+       text-shadow: 6px 6px 0 rgba(57,255,106,0.22); }
+  .sub { color: var(--dim); font-size: 30px; margin: 4px 0 28px; }
+  .box { border: 2px solid var(--dim); background: var(--panel); padding: 14px 18px; margin: 22px 0; }
+  .term { min-height: 250px; white-space: pre-wrap; }
+  .term .cmd { color: var(--bright); }
+  .cursor { display: inline-block; width: 0.6em; background: var(--main); animation: blink 0.9s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  h2 { font-size: 34px; margin: 42px 0 10px; color: var(--bright); }
+  h2::before { content: "> "; color: var(--main); }
+  ul { list-style: none; padding: 0; margin: 0; }
+  li { padding: 3px 0; }
+  li::before { content: "- "; color: var(--dim); }
+  .shots { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; }
+  .shots figure { margin: 0; flex: 0 0 auto; scroll-snap-align: start; }
+  .shots img { width: 230px; display: block; border: 2px solid var(--dim); image-rendering: pixelated; }
+  .shots figcaption { color: var(--dim); font-size: 20px; padding-top: 4px; }
+  table { width: 100%; border-collapse: collapse; font-size: 20px; }
+  th, td { border-bottom: 1px solid var(--grid); padding: 6px 4px; text-align: left; }
+  th { color: var(--bright); }
+  td.yes { color: var(--main); } td.no { color: var(--dim); }
+  .keys { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+  .key { border: 2px solid var(--main); padding: 10px 18px; text-decoration: none; color: var(--main); }
+  .key.lit { background: var(--main); color: var(--bg); }
+  .key.amber { border-color: var(--amber); color: var(--amber); }
+  footer { color: var(--dim); font-size: 18px; margin-top: 48px; }
+  @media (max-width: 520px) { body { font-size: 20px; } .shots img { width: 180px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar"><span>STLTH://SAMPLER</span><span><a href="#shots">SCREENS</a><a href="#plans">PRO / SUB</a></span></div>
+
+  <h1>STLTH</h1>
+  <div class="sub">://SAMPLER &nbsp; A LITTLE HACKING TOOL TO MAKE MUSIC</div>
+
+  <div class="box term" id="term" aria-label="STLTH terminal"></div>
+
+  <div class="keys">
+    <a class="key lit" href="https://play.google.com/store/apps/details?id=com.michelebonomi.stlth">GET IT ON GOOGLE PLAY</a>
+    <a class="key amber" href="https://t.me/+w5EQkc11S9QyOGNk">SUB CHANNEL</a>
+  </div>
+
+  <h2>WHAT IT DOES</h2>
+  <div class="box">
+    <ul>
+      <li>16 PADS: SAMPLE, CHOP, PITCH, ADSR, WARP ON THE BEAT</li>
+      <li>PAT: PATTERNS ON A STEP GRID. SONG: THE PATTERNS IN A ROW</li>
+      <li>MIXER WITH GROUPS, EFFECTS ON EVERY TRACK AND ON THE MASTER</li>
+      <li>DJ: TWO DECKS, CROSSFADER, CUES, SCRATCH, SYNC</li>
+      <li>EXPORT WAV, VIDEOS OF YOUR BEAT FOR THE SOCIALS</li>
+      <li>MOOD ONE: THE SYNTH (SUB EARLY ACCESS)</li>
+      <li>HELP BUILT IN: TAP ? AND THEN ANYTHING</li>
+      <li>NO ADS</li>
+    </ul>
+  </div>
+
+  <h2 id="shots">SCREENS</h2>
+  <div class="shots">
+    <figure><img src="img/01_intro.png" alt="STLTH intro, a terminal"><figcaption>INTRO</figcaption></figure>
+    <figure><img src="img/02_home.png" alt="STLTH home, the pads"><figcaption>HOME</figcaption></figure>
+    <figure><img src="img/03_sample.png" alt="STLTH sample page"><figcaption>SAMPLE</figcaption></figure>
+    <figure><img src="img/04_pat.png" alt="STLTH pattern grid"><figcaption>PAT</figcaption></figure>
+    <figure><img src="img/05_song.png" alt="STLTH song"><figcaption>SONG</figcaption></figure>
+    <figure><img src="img/06_mixer.png" alt="STLTH mixer"><figcaption>MIXER</figcaption></figure>
+    <figure><img src="img/07_dj.png" alt="STLTH DJ decks"><figcaption>DJ</figcaption></figure>
+    <figure><img src="img/08_fx.png" alt="STLTH effects"><figcaption>FX</figcaption></figure>
+    <figure><img src="img/10_themes.png" alt="STLTH themes"><figcaption>THEMES</figcaption></figure>
+  </div>
+
+  <h2 id="plans">PRO / SUB</h2>
+  <div class="box">
+    <table>
+      <tr><th></th><th>FREE</th><th>PRO</th><th>SUB</th></tr>
+      <tr><td>SAMPLER, PAT + SONG, MIXER, FX</td><td class="yes">YES</td><td class="yes">YES</td><td class="yes">YES</td></tr>
+      <tr><td>EXPORT WAV, VIDEO 720P</td><td class="yes">YES</td><td class="yes">YES</td><td class="yes">YES</td></tr>
+      <tr><td>DJ MODE (OR BUY IT ALONE)</td><td class="no">BUY</td><td class="yes">YES</td><td class="yes">YES</td></tr>
+      <tr><td>SONG EXPORT AT ONCE, VIDEO 1080P</td><td class="no">-</td><td class="yes">YES</td><td class="yes">YES</td></tr>
+      <tr><td>THEMES, YOUR COLOURS, SCREEN SAVERS</td><td class="no">SOME</td><td class="yes">YES</td><td class="yes">YES</td></tr>
+      <tr><td>NEW PLUGINS AND FEATURES</td><td class="no">-</td><td class="no">LATER</td><td class="yes">FIRST</td></tr>
+      <tr><td>NEW KITS, SAMPLES, CHAINS, PRESETS</td><td class="no">-</td><td class="no">LATER</td><td class="yes">FIRST</td></tr>
+      <tr><td>SUB CHANNEL: SAY WHAT COMES NEXT</td><td class="no">-</td><td class="no">-</td><td class="yes">YES</td></tr>
+    </table>
+    <p>PRO = THE STABLE VERSION, PAID ONCE. SUB = EARLY ACCESS. YOUR PROJECTS ALWAYS OPEN AND PLAY, WITH OR WITHOUT SUB.</p>
+  </div>
+
+  <footer>
+    STLTH://SAMPLER - MADE BY MICHELE BONOMI - <a href="mailto:michele.bonomi00@gmail.com">MICHELE.BONOMI00@GMAIL.COM</a>
+    - <a href="privacy.html">PRIVACY</a>
+  </footer>
+</div>
+
+<script>
+  // the terminal types, like the app at its first start
+  const lines = [
+    ["cmd", "stlth --boot"],
+    ["out", "WELCOME TO STLTH."],
+    ["out", "A LITTLE HACKING TOOL TO MAKE MUSIC, IN STEALTH."],
+    ["cmd", "ls"],
+    ["out", "PADS  SAMPLE  PAT  SONG  MIXER  DJ  FX"],
+    ["cmd", "news"],
+    ["out", "IN DEVELOPMENT: QUANTUM ECHO, VINYL, MOTION, AUTO MASTER, HUM ONE"],
+  ];
+  const term = document.getElementById("term");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let i = 0;
+  function cursor() { const c = document.createElement("span"); c.className = "cursor"; c.textContent = " "; return c; }
+  function next() {
+    if (i >= lines.length) { term.appendChild(document.createTextNode("> ")); term.appendChild(cursor()); return; }
+    const [kind, text] = lines[i++];
+    const row = document.createElement("div");
+    if (kind === "cmd") row.className = "cmd";
+    term.appendChild(row);
+    const full = (kind === "cmd" ? "> " : "") + text.toUpperCase();
+    if (reduce) { row.textContent = full; next(); return; }
+    let k = kind === "cmd" ? 2 : 0;
+    row.textContent = full.slice(0, k);
+    const tick = setInterval(() => {
+      k += kind === "cmd" ? 1 : 4;
+      row.textContent = full.slice(0, k);
+      if (k >= full.length) { clearInterval(tick); setTimeout(next, kind === "cmd" ? 280 : 140); }
+    }, kind === "cmd" ? 70 : 14);
+  }
+  next();
+</script>
+</body>
+</html>
