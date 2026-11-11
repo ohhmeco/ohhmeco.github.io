@@ -64,7 +64,7 @@
   <div class="bar"><span>OHHMECO://HOME</span><span><a href="#projects">PROJECTS</a><a href="stlth/">STLTH</a><a href="#contact">CONTACT</a></span></div>
 
   <h1>MICHELE<br>BONOMI</h1>
-  <div class="sub">COMPUTER SCIENTIST - QUANTUM COMPUTING AND AI</div>
+  <div class="sub" id="roles">COMPUTER SCIENTIST - ATHLETE - MUSIC MAKER</div>
 
   <div class="box term" id="term" aria-label="terminal"></div>
 
@@ -122,9 +122,13 @@
 </div>
 
 <script>
+  // the three roles, in a random order at every visit
+  const roles = ["COMPUTER SCIENTIST", "ATHLETE", "MUSIC MAKER"];
+  for (let r = roles.length - 1; r > 0; r--) { const j = Math.floor(Math.random() * (r + 1)); [roles[r], roles[j]] = [roles[j], roles[r]]; }
+  document.getElementById("roles").textContent = roles.join(" - ");
   const lines = [
     ["cmd", "whoami"],
-    ["out", "MICHELE BONOMI. COMPUTER SCIENTIST: QUANTUM COMPUTING AND AI."],
+    ["out", "MICHELE BONOMI. " + roles.join(", ") + "."],
     ["out", "COMPUTER SCIENCE STUDENT, UNIVERSITY OF MILAN."],
     ["cmd", "ls projects"],
     ["link", "STLTH://SAMPLER", "stlth/"],
