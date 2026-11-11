@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MICHELE BONOMI - DEVELOPER</title>
+<meta name="description" content="Michele Bonomi, indie solo developer. Audio software and music apps: STLTH://SAMPLER.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #030703; --panel: #07120a; --grid: #0f2a16; --dim: #1f7a3a;
+    --main: #39ff6a; --bright: #c8ffd6; --amber: #ffb000;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--main); }
+  body {
+    font-family: "VT323", ui-monospace, monospace; font-size: 22px; line-height: 1.25;
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  body::after {
+    content: ""; position: fixed; inset: 0; pointer-events: none;
+    background: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.28) 2px 3px);
+  }
+  a { color: var(--bright); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 24px 16px 64px; }
+  .bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px; border: 2px solid var(--dim); padding: 6px 12px; }
+  .bar a { text-decoration: none; margin-left: 16px; }
+  h1 { font-size: clamp(52px, 12vw, 120px); line-height: 0.9; margin: 36px 0 0; color: var(--main);
+       text-shadow: 6px 6px 0 rgba(57,255,106,0.22); }
+  .sub { color: var(--dim); font-size: 30px; margin: 4px 0 28px; }
+  .box { border: 2px solid var(--dim); background: var(--panel); padding: 14px 18px; margin: 22px 0; }
+  .term { min-height: 210px; white-space: pre-wrap; }
+  .term .cmd { color: var(--bright); }
+  .term a { color: var(--bright); }
+  .cursor { display: inline-block; width: 0.6em; background: var(--main); animation: blink 0.9s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  h2 { font-size: 34px; margin: 42px 0 10px; color: var(--bright); }
+  h2::before { content: "> "; color: var(--main); }
+  ul { list-style: none; padding: 0; margin: 0; }
+  li { padding: 3px 0; }
+  li::before { content: "- "; color: var(--dim); }
+  .project { display: grid; grid-template-columns: 200px 1fr; gap: 20px; align-items: start; text-decoration: none; color: var(--main); }
+  .project:hover, .project:focus-visible { border-color: var(--main); outline: none; }
+  .project img { width: 100%; display: block; border: 2px solid var(--dim); image-rendering: pixelated; }
+  .project h3 { font-size: 40px; margin: 0 0 4px; color: var(--bright); }
+  .project .tag { color: var(--amber); }
+  .project .go { display: inline-block; margin-top: 12px; border: 2px solid var(--main); padding: 6px 14px; }
+  .project:hover .go { background: var(--main); color: var(--bg); }
+  .keys { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+  .key { border: 2px solid var(--main); padding: 10px 18px; text-decoration: none; color: var(--main); }
+  .key.lit { background: var(--main); color: var(--bg); }
+  footer { color: var(--dim); font-size: 18px; margin-top: 48px; }
+  @media (max-width: 600px) {
+    body { font-size: 20px; }
+    .project { grid-template-columns: 1fr; }
+    .project img { max-width: 220px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar"><span>OHHMECO://HOME</span><span><a href="#projects">PROJECTS</a><a href="stlth/">STLTH</a><a href="#contact">CONTACT</a></span></div>
+
+  <h1>MICHELE<br>BONOMI</h1>
+  <div class="sub">INDIE SOLO DEVELOPER - AUDIO SOFTWARE AND MUSIC APPS</div>
+
+  <div class="box term" id="term" aria-label="terminal"></div>
+
+  <div class="keys">
+    <a class="key lit" href="stlth/">OPEN STLTH://SAMPLER</a>
+    <a class="key" href="https://github.com/ohhmeco">GITHUB</a>
+  </div>
+
+  <h2 id="about">ABOUT</h2>
+  <div class="box">
+    <p style="margin:0">I DESIGN AND BUILD MUSIC SOFTWARE ON MY OWN: THE AUDIO ENGINE, THE EFFECTS, THE INTERFACE, THE RELEASE ON THE STORE.</p>
+  </div>
+
+  <h2 id="projects">PROJECTS</h2>
+  <a class="box project" href="stlth/">
+    <img src="stlth/img/02_home.png" alt="STLTH://SAMPLER, the pads">
+    <div>
+      <h3>STLTH://SAMPLER</h3>
+      <div class="tag">ANDROID - C++ / JUCE</div>
+      <ul>
+        <li>16 PADS: SAMPLE, CHOP, PITCH, ADSR, WARP ON THE BEAT</li>
+        <li>PATTERN SEQUENCER AND SONG PLAYLIST</li>
+        <li>MIXER WITH GROUPS, EFFECTS ON EVERY TRACK AND ON THE MASTER</li>
+        <li>DJ: TWO DECKS, CROSSFADER, CUES, SYNC</li>
+        <li>EXPORT WAV AND VIDEO</li>
+      </ul>
+      <span class="go">THE PAGE OF STLTH &gt;</span>
+    </div>
+  </a>
+
+  <h2 id="stack">STACK</h2>
+  <div class="box">
+    <ul>
+      <li>C++, JUCE</li>
+      <li>REAL-TIME AUDIO: SAMPLERS, SEQUENCERS, EFFECTS, TIME STRETCH</li>
+      <li>ANDROID: GRADLE, GOOGLE PLAY BILLING</li>
+      <li>CUSTOM PIXEL UI, THEMES</li>
+    </ul>
+  </div>
+
+  <h2 id="contact">CONTACT</h2>
+  <div class="box">
+    <ul>
+      <li>MAIL: <a href="mailto:michele.bonomi00@gmail.com">MICHELE.BONOMI00@GMAIL.COM</a></li>
+      <li>GITHUB: <a href="https://github.com/ohhmeco">OHHMECO</a></li>
+    </ul>
+  </div>
+
+  <footer>
+    MICHELE BONOMI - <a href="stlth/">STLTH://SAMPLER</a> - <a href="stlth/privacy.html">STLTH PRIVACY</a>
+  </footer>
+</div>
+
+<script>
+  const lines = [
+    ["cmd", "whoami"],
+    ["out", "MICHELE BONOMI. INDIE SOLO DEVELOPER."],
+    ["cmd", "ls projects"],
+    ["link", "STLTH://SAMPLER", "stlth/"],
+    ["cmd", "open stlth"],
+  ];
+  const term = document.getElementById("term");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let i = 0;
+  function cursor() { const c = document.createElement("span"); c.className = "cursor"; c.textContent = " "; return c; }
+  function finish() {
+    const row = document.createElement("div");
+    const a = document.createElement("a"); a.href = "stlth/"; a.textContent = "> STLTH://SAMPLER - TAP TO OPEN";
+    row.appendChild(a); term.appendChild(row);
+    term.appendChild(document.createTextNode("> ")); term.appendChild(cursor());
+  }
+  function next() {
+    if (i >= lines.length) { finish(); return; }
+    const [kind, text, href] = lines[i++];
+    const row = document.createElement("div");
+    if (kind === "cmd") row.className = "cmd";
+    let target = row;
+    if (kind === "link") { target = document.createElement("a"); target.href = href; row.appendChild(target); }
+    term.appendChild(row);
+    const full = (kind === "cmd" ? "> " : "") + text.toUpperCase();
+    if (reduce) { target.textContent = full; next(); return; }
+    let k = kind === "cmd" ? 2 : 0;
+    target.textContent = full.slice(0, k);
+    const tick = setInterval(() => {
+      k += kind === "cmd" ? 1 : 4;
+      target.textContent = full.slice(0, k);
+      if (k >= full.length) { clearInterval(tick); setTimeout(next, kind === "cmd" ? 280 : 140); }
+    }, kind === "cmd" ? 70 : 14);
+  }
+  next();
+</script>
+</body>
+</html>
