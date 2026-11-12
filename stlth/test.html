@@ -40,10 +40,6 @@
   ul { list-style: none; padding: 0; margin: 0; }
   li { padding: 3px 0; }
   li::before { content: "- "; color: var(--dim); }
-  .video { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
-  .video .frame { flex: 0 0 auto; width: min(100%, 300px); aspect-ratio: 9 / 16; border: 2px solid var(--dim); background: #000; }
-  .video iframe { width: 100%; height: 100%; border: 0; display: block; }
-  .video .side { flex: 1 1 220px; }
   footer { color: var(--dim); font-size: 18px; margin-top: 40px; }
   @media (max-width: 520px) { body { font-size: 20px; } .step { grid-template-columns: 44px 1fr; } .n { font-size: 48px; } }
 </style>
@@ -54,16 +50,6 @@
 
   <h1>BECOME A TESTER</h1>
   <div class="sub">TRY STLTH BEFORE IT IS OUT. ANDROID. THREE STEPS.</div>
-
-  <div class="box video">
-    <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/9QioInOPCBc" title="STLTH in action" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
-        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-    <div class="side">
-      <p style="margin:0">THIS IS STLTH.</p>
-      <p style="margin:10px 0 0" class="it">ECCO STLTH IN AZIONE.</p>
-      <p style="margin:10px 0 0"><a href="https://www.youtube.com/shorts/9QioInOPCBc">OPEN IT ON YOUTUBE</a></p>
-    </div>
-  </div>
 
   <div class="box step">
     <div class="n">1</div>

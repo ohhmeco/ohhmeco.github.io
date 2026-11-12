@@ -54,6 +54,7 @@
   .key { border: 2px solid var(--main); padding: 10px 18px; text-decoration: none; color: var(--main); }
   .key.lit { background: var(--main); color: var(--bg); }
   .key.amber { border-color: var(--amber); color: var(--amber); }
+  .key.off { border-color: var(--dim); color: var(--dim); cursor: default; }
   .news { border-color: var(--amber); }
   .news h3 { margin: 0 0 8px; color: var(--amber); font-size: 26px; font-weight: normal; }
   .news li::before { content: "+ "; color: var(--amber); }
@@ -90,7 +91,9 @@
   <div class="box term" id="term" aria-label="STLTH terminal"></div>
 
   <div class="keys">
-    <a class="key lit" href="https://play.google.com/store/apps/details?id=com.michelebonomi.stlth">GET IT ON GOOGLE PLAY</a>
+    <!-- not out yet: when STLTH is on Google Play this goes back to
+         <a class="key lit" href="https://play.google.com/store/apps/details?id=com.michelebonomi.stlth">GET IT ON GOOGLE PLAY</a> -->
+    <span class="key off" aria-disabled="true">SOON ON GOOGLE PLAY</span>
     <a class="key amber" href="test.html">BECOME A TESTER</a>
   </div>
 
