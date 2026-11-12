@@ -23,9 +23,10 @@
   a { color: var(--bright); }
   .px { font-family: "VT323", ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.04em; }
   .wrap { max-width: 880px; margin: 0 auto; padding: 24px 16px 64px; }
-  .bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px; border: 2px solid var(--dim);
+  .bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; border: 2px solid var(--dim);
          padding: 6px 12px; font-size: 20px; color: var(--main); }
-  .bar a { text-decoration: none; margin-left: 14px; }
+  .bar span { display: flex; flex-wrap: wrap; gap: 2px 14px; min-width: 0; }
+  .bar a { text-decoration: none; }
   header { margin: 40px 0 8px; }
   h1 { font-size: clamp(48px, 10vw, 96px); line-height: 0.9; margin: 0; color: var(--main);
        text-shadow: 5px 5px 0 rgba(57,255,106,0.2); }

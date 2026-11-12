@@ -26,11 +26,12 @@
   }
   a { color: var(--bright); }
   .wrap { max-width: 980px; margin: 0 auto; padding: 24px 16px 64px; }
-  .bar { display: flex; justify-content: space-between; border: 2px solid var(--dim); padding: 6px 12px; }
-  .bar a { text-decoration: none; margin-left: 16px; }
+  .bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; border: 2px solid var(--dim); padding: 6px 12px; }
+  .bar span { display: flex; flex-wrap: wrap; gap: 2px 14px; min-width: 0; }
+  .bar a { text-decoration: none; white-space: nowrap; }
   h1 { font-size: clamp(64px, 16vw, 150px); line-height: 0.9; margin: 36px 0 0; color: var(--main);
        text-shadow: 6px 6px 0 rgba(57,255,106,0.22); }
-  .sub { color: var(--dim); font-size: 30px; margin: 4px 0 28px; }
+  .sub { color: var(--dim); font-size: clamp(22px, 6vw, 30px); margin: 4px 0 28px; }
   .box { border: 2px solid var(--dim); background: var(--panel); padding: 14px 18px; margin: 22px 0; }
   .term { min-height: 250px; white-space: pre-wrap; }
   .term .cmd { color: var(--bright); }
@@ -81,7 +82,7 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="bar"><span><a href="../" style="margin-left:0">HOME</a> / STLTH://SAMPLER</span><span><a href="#video">VIDEO</a><a href="#news" class="newslink">IN DEVELOPMENT</a><a href="#shots">SCREENS</a><a href="#plans">PRO / SUB</a><a href="#feedback">FEEDBACK</a><a href="privacy.html">PRIVACY</a></span></div>
+  <div class="bar"><span><a href="../">HOME</a><span>/ STLTH://SAMPLER</span></span><span><a href="#video">VIDEO</a><a href="#news" class="newslink">IN DEVELOPMENT</a><a href="#shots">SCREENS</a><a href="#plans">PRO / SUB</a><a href="#feedback">FEEDBACK</a><a href="privacy.html">PRIVACY</a></span></div>
 
   <h1>STLTH</h1>
   <div class="sub">://SAMPLER &nbsp; A SMALL BUT POWERFUL TOOL TO MAKE MUSIC ON YOUR PHONE</div>
@@ -95,7 +96,7 @@
 
   <h2 id="video">VIDEO</h2>
   <div class="box video">
-    <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/9QioInOPCBc" title="STLTH in action" loading="lazy"
+    <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/9QioInOPCBc" title="STLTH in action" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
         allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
     <div class="side">
       <p style="margin:0">STLTH IN ACTION.</p>

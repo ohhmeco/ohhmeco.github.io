@@ -25,11 +25,11 @@
   }
   a { color: var(--bright); }
   .wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
-  .bar { display: flex; justify-content: space-between; border: 2px solid var(--dim); padding: 6px 12px; }
+  .bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; border: 2px solid var(--dim); padding: 6px 12px; }
   .bar a { text-decoration: none; }
   h1 { font-size: clamp(48px, 12vw, 96px); line-height: 0.9; margin: 36px 0 0;
        text-shadow: 5px 5px 0 rgba(57,255,106,0.22); }
-  .sub { color: var(--dim); font-size: 28px; margin: 6px 0 24px; }
+  .sub { color: var(--dim); font-size: clamp(22px, 6vw, 28px); margin: 6px 0 24px; }
   .box { border: 2px solid var(--dim); background: var(--panel); padding: 14px 18px; margin: 18px 0; }
   .step { display: grid; grid-template-columns: 64px 1fr; gap: 6px 16px; align-items: start; }
   .n { font-size: 64px; line-height: 0.8; color: var(--bright); }
@@ -56,7 +56,7 @@
   <div class="sub">TRY STLTH BEFORE IT IS OUT. ANDROID. THREE STEPS.</div>
 
   <div class="box video">
-    <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/9QioInOPCBc" title="STLTH in action" loading="lazy"
+    <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/9QioInOPCBc" title="STLTH in action" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
         allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
     <div class="side">
       <p style="margin:0">THIS IS STLTH.</p>
