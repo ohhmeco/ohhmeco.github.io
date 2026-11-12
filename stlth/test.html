@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STLTH - Become a tester</title>
+<meta name="description" content="Try STLTH before it is out: two steps to become a tester on Android.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #030703; --panel: #07120a; --grid: #0f2a16; --dim: #1f7a3a;
+    --main: #39ff6a; --bright: #c8ffd6; --amber: #ffb000;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--main); }
+  body {
+    font-family: "VT323", ui-monospace, monospace; font-size: 22px; line-height: 1.25;
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  body::after {
+    content: ""; position: fixed; inset: 0; pointer-events: none;
+    background: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.28) 2px 3px);
+  }
+  a { color: var(--bright); }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
+  .bar { display: flex; justify-content: space-between; border: 2px solid var(--dim); padding: 6px 12px; }
+  .bar a { text-decoration: none; }
+  h1 { font-size: clamp(48px, 12vw, 96px); line-height: 0.9; margin: 36px 0 0;
+       text-shadow: 5px 5px 0 rgba(57,255,106,0.22); }
+  .sub { color: var(--dim); font-size: 28px; margin: 6px 0 24px; }
+  .box { border: 2px solid var(--dim); background: var(--panel); padding: 14px 18px; margin: 18px 0; }
+  .step { display: grid; grid-template-columns: 64px 1fr; gap: 6px 16px; align-items: start; }
+  .n { font-size: 64px; line-height: 0.8; color: var(--bright); }
+  .step h2 { font-size: 30px; margin: 0; color: var(--bright); font-weight: normal; }
+  .it { color: var(--dim); }
+  .key { display: inline-block; margin-top: 10px; border: 2px solid var(--main); padding: 8px 18px;
+         text-decoration: none; background: var(--main); color: var(--bg); }
+  ul { list-style: none; padding: 0; margin: 0; }
+  li { padding: 3px 0; }
+  li::before { content: "- "; color: var(--dim); }
+  footer { color: var(--dim); font-size: 18px; margin-top: 40px; }
+  @media (max-width: 520px) { body { font-size: 20px; } .step { grid-template-columns: 44px 1fr; } .n { font-size: 48px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar"><span><a href="./">STLTH://SAMPLER</a> / TEST</span><span></span></div>
+
+  <h1>BECOME A TESTER</h1>
+  <div class="sub">TRY STLTH BEFORE IT IS OUT. ANDROID. TWO STEPS.</div>
+
+  <div class="box step">
+    <div class="n">1</div>
+    <div>
+      <h2>JOIN THE GROUP OF THE TESTERS</h2>
+      <div>OPEN THE GROUP AND TAP "JOIN GROUP" (ISCRIVITI AL GRUPPO).</div>
+      <div class="it">ENTRA NEL GRUPPO DEI TESTER.</div>
+      <a class="key" href="https://groups.google.com/g/stlth-testers">1. JOIN THE GROUP</a>
+    </div>
+  </div>
+
+  <div class="box step">
+    <div class="n">2</div>
+    <div>
+      <h2>JOIN THE TEST AND INSTALL</h2>
+      <div>ACCEPT, THEN INSTALL STLTH FROM GOOGLE PLAY.</div>
+      <div class="it">ADERISCI AL TEST E INSTALLA L'APP.</div>
+      <a class="key" href="https://play.google.com/apps/testing/com.michelebonomi.stlth">2. JOIN THE TEST</a>
+    </div>
+  </div>
+
+  <div class="box">
+    <ul>
+      <li>USE THE SAME GOOGLE ACCOUNT OF YOUR PHONE FOR BOTH STEPS</li>
+      <li>"APP NOT AVAILABLE" AT STEP 2 = STEP 1 IS MISSING, OR ANOTHER ACCOUNT</li>
+      <li>STAY IN THE TEST FOR AT LEAST 14 DAYS: IT IS WHAT LETS STLTH COME OUT</li>
+      <li>IT IS A TEST VERSION: BUGS AND IDEAS <a href="./#feedback">HERE</a></li>
+      <li>PURCHASES IN THE TEST ARE REAL PURCHASES</li>
+    </ul>
+  </div>
+
+  <footer>STLTH://SAMPLER - MADE BY MICHELE BONOMI - <a href="privacy.html">PRIVACY</a></footer>
+</div>
+</body>
+</html>
