@@ -59,13 +59,25 @@
   .news .n { color: var(--bright); }
   .news p { margin: 10px 0 0; color: var(--dim); }
   .bar a.newslink { color: var(--amber); }
+  .fb label { display: block; color: var(--dim); margin: 10px 0 4px; }
+  .fb .kinds { display: flex; flex-wrap: wrap; gap: 10px; }
+  .fb .kinds input { position: absolute; opacity: 0; }
+  .fb .kinds span { display: inline-block; border: 2px solid var(--dim); padding: 4px 14px; cursor: pointer; }
+  .fb .kinds input:checked + span { background: var(--main); color: var(--bg); border-color: var(--main); }
+  .fb .kinds input:focus-visible + span { outline: 2px solid var(--bright); }
+  .fb textarea { width: 100%; min-height: 150px; background: var(--bg); color: var(--bright); border: 2px solid var(--dim);
+                 font: inherit; text-transform: none; letter-spacing: 0; padding: 8px 10px; resize: vertical; }
+  .fb textarea:focus { outline: none; border-color: var(--main); }
+  .fb button { margin-top: 12px; font: inherit; text-transform: uppercase; letter-spacing: inherit; cursor: pointer;
+               background: var(--main); color: var(--bg); border: 2px solid var(--main); padding: 8px 22px; }
+  .fb .note { color: var(--dim); font-size: 18px; margin: 10px 0 0; }
   footer { color: var(--dim); font-size: 18px; margin-top: 48px; }
   @media (max-width: 520px) { body { font-size: 20px; } .shots img { width: 180px; } }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="bar"><span><a href="../" style="margin-left:0">HOME</a> / STLTH://SAMPLER</span><span><a href="#news" class="newslink">IN DEVELOPMENT</a><a href="#shots">SCREENS</a><a href="#plans">PRO / SUB</a><a href="privacy.html">PRIVACY</a></span></div>
+  <div class="bar"><span><a href="../" style="margin-left:0">HOME</a> / STLTH://SAMPLER</span><span><a href="#news" class="newslink">IN DEVELOPMENT</a><a href="#shots">SCREENS</a><a href="#plans">PRO / SUB</a><a href="#feedback">FEEDBACK</a><a href="privacy.html">PRIVACY</a></span></div>
 
   <h1>STLTH</h1>
   <div class="sub">://SAMPLER &nbsp; A SMALL BUT POWERFUL TOOL TO MAKE MUSIC ON YOUR PHONE</div>
@@ -131,6 +143,21 @@
     <p>PRO = THE STABLE VERSION, PAID ONCE. SUB = EARLY ACCESS. YOUR PROJECTS ALWAYS OPEN AND PLAY, WITH OR WITHOUT SUB.</p>
   </div>
 
+  <h2 id="feedback">FEEDBACK</h2>
+  <form class="box fb" id="fb">
+    <label>WHAT IS IT ABOUT</label>
+    <div class="kinds">
+      <label style="margin:0"><input type="radio" name="kind" value="IDEA" checked><span>IDEA</span></label>
+      <label style="margin:0"><input type="radio" name="kind" value="BUG"><span>BUG</span></label>
+      <label style="margin:0"><input type="radio" name="kind" value="LOVE"><span>LOVE</span></label>
+      <label style="margin:0"><input type="radio" name="kind" value="COMPLAINT"><span>COMPLAINT</span></label>
+    </div>
+    <label for="fbtext">YOUR MESSAGE</label>
+    <textarea id="fbtext" name="message" required></textarea>
+    <button type="submit">SEND</button>
+    <p class="note">SEND OPENS YOUR MAIL APP WITH THE MESSAGE READY: IT GOES STRAIGHT TO MICHELE. NOTHING IS STORED ON THIS SITE.</p>
+  </form>
+
   <h2 id="contact">CONTACT</h2>
   <div class="box">
     <p style="margin:0">FOR IDEAS, BUGS AND LOVE: WRITE TO <a href="mailto:michele.bonomi00@gmail.com?subject=STLTH">MICHELE.BONOMI00@GMAIL.COM</a>.<br>
@@ -176,6 +203,16 @@
     }, kind === "cmd" ? 70 : 14);
   }
   next();
+
+  // FEEDBACK: the message goes by mail, from the mail app of who writes (this site stores nothing)
+  document.getElementById("fb").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const kind = new FormData(e.target).get("kind") || "IDEA";
+    const text = document.getElementById("fbtext").value.trim();
+    if (!text) return;
+    const body = text + "\n\n---\nSTLTH FEEDBACK (" + kind + ")\nPHONE AND ANDROID VERSION (FOR A BUG): ";
+    location.href = "mailto:michele.bonomi00@gmail.com?subject=" + encodeURIComponent("STLTH " + kind) + "&body=" + encodeURIComponent(body);
+  });
 
   // NEWS: the same file the app reads (news.json); the list above stays if it can not be read
   fetch("news.json", { cache: "no-store" }).then(r => r.json()).then(d => {
