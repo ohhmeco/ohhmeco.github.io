@@ -77,13 +77,17 @@
   .video .frame { flex: 0 0 auto; width: min(100%, 300px); aspect-ratio: 9 / 16; border: 2px solid var(--dim); background: #000; }
   .video iframe { width: 100%; height: 100%; border: 0; display: block; }
   .video .side { flex: 1 1 220px; }
+  .howto { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; }
+  .howto figure { margin: 0; flex: 0 0 auto; scroll-snap-align: start; width: 220px; }
+  .howto video { width: 100%; display: block; border: 2px solid var(--dim); background: #000; }
+  .howto figcaption { color: var(--dim); font-size: 20px; padding-top: 4px; }
   footer { color: var(--dim); font-size: 18px; margin-top: 48px; }
   @media (max-width: 520px) { body { font-size: 20px; } .shots img { width: 180px; } }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="bar"><span><a href="../">HOME</a><span>/ STLTH://SAMPLER</span></span><span><a href="#video">VIDEO</a><a href="#news" class="newslink">IN DEVELOPMENT</a><a href="#shots">SCREENS</a><a href="#plans">PRO / SUB</a><a href="manual.pdf">MANUAL</a><a href="#feedback">FEEDBACK</a><a href="privacy.html">PRIVACY</a></span></div>
+  <div class="bar"><span><a href="../">HOME</a><span>/ STLTH://SAMPLER</span></span><span><a href="#video">VIDEO</a><a href="#news" class="newslink">IN DEVELOPMENT</a><a href="#shots">SCREENS</a><a href="#plans">PRO / SUB</a><a href="#howto">HOW TO</a><a href="manual.pdf">MANUAL</a><a href="#feedback">FEEDBACK</a><a href="privacy.html">PRIVACY</a></span></div>
 
   <h1>STLTH</h1>
   <div class="sub">://SAMPLER &nbsp; A SMALL BUT POWERFUL TOOL TO MAKE MUSIC ON YOUR PHONE</div>
@@ -120,6 +124,15 @@
       <li>NO ADS</li>
     </ul>
   </div>
+
+  <h2 id="howto">HOW TO</h2>
+  <div class="howto">
+    <figure><video src="videos/01_kits_and_jam.mp4" controls preload="metadata" playsinline></video><figcaption>KITS AND JAM</figcaption></figure>
+    <figure><video src="videos/02_piano_roll_keys.mp4" controls preload="metadata" playsinline></video><figcaption>PIANO ROLL (PAT &gt; KEYS)</figcaption></figure>
+    <figure><video src="videos/03_piano_over_a_loop.mp4" controls preload="metadata" playsinline></video><figcaption>THE PIANO OVER A LOOP</figcaption></figure>
+    <figure><video src="videos/04_notes.mp4" controls preload="metadata" playsinline></video><figcaption>THE NOTES OF A SOUND</figcaption></figure>
+  </div>
+  <p style="margin:6px 0 0"><a href="manual.pdf">THE MANUAL (PDF)</a></p>
 
   <h2 id="news">IN DEVELOPMENT</h2>
   <div class="box news">
