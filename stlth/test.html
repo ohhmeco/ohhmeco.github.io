@@ -4,93 +4,248 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>STLTH - Become a tester</title>
-<meta name="description" content="Try STLTH before it is out: three steps to become a tester on Android.">
+<meta name="description" content="STLTH is a music app for Android: a sampler and beat maker. Try it before it is out on Google Play: what it is, what it does, and three steps to join the test.">
+<meta property="og:title" content="STLTH - a music app for Android: become a tester">
+<meta property="og:description" content="A sampler and beat maker for Android. Free, no ads, installed from Google Play. Join the test before it is out.">
+<meta property="og:image" content="https://ohhmeco.github.io/stlth/img/feature_graphic.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #030703; --panel: #07120a; --grid: #0f2a16; --dim: #1f7a3a;
+    --bg: #030703; --panel: #07120a; --grid: #0f2a16; --dim: #1f7a3a; --soft: #8fd9a4;
     --main: #39ff6a; --bright: #c8ffd6; --amber: #ffb000;
   }
   * { box-sizing: border-box; }
-  html, body { margin: 0; background: var(--bg); color: var(--main); }
-  body {
-    font-family: "VT323", ui-monospace, monospace; font-size: 22px; line-height: 1.25;
-    text-transform: uppercase; letter-spacing: 0.04em;
-  }
-  body::after {
-    content: ""; position: fixed; inset: 0; pointer-events: none;
-    background: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.28) 2px 3px);
-  }
-  a { color: var(--bright); }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
-  .bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; border: 2px solid var(--dim); padding: 6px 12px; }
+  html, body { margin: 0; background: var(--bg); color: var(--bright); }
+  /* the explanations in plain readable text; the pixel font only for titles and keys */
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 17px; line-height: 1.55; }
+  .px { font-family: "VT323", ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.04em; }
+  a { color: var(--main); }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 20px 16px 64px; }
+  .bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 16px;
+         border: 2px solid var(--dim); padding: 6px 12px; font-size: 22px; color: var(--main); }
   .bar a { text-decoration: none; }
-  h1 { font-size: clamp(48px, 12vw, 96px); line-height: 0.9; margin: 36px 0 0;
+  .lang { display: flex; gap: 6px; }
+  .lang button { font: inherit; background: none; color: var(--dim); border: 2px solid var(--dim); padding: 0 10px; cursor: pointer; }
+  .lang button[aria-pressed="true"] { background: var(--main); border-color: var(--main); color: var(--bg); }
+  h1 { font-size: clamp(46px, 11vw, 84px); line-height: 0.95; margin: 30px 0 6px; color: var(--main);
        text-shadow: 5px 5px 0 rgba(57,255,106,0.22); }
-  .sub { color: var(--dim); font-size: clamp(22px, 6vw, 28px); margin: 6px 0 24px; }
-  .box { border: 2px solid var(--dim); background: var(--panel); padding: 14px 18px; margin: 18px 0; }
-  .step { display: grid; grid-template-columns: 64px 1fr; gap: 6px 16px; align-items: start; }
-  .n { font-size: 64px; line-height: 0.8; color: var(--bright); }
-  .step h2 { font-size: 30px; margin: 0; color: var(--bright); font-weight: normal; }
-  .it { color: var(--dim); }
-  .key { display: inline-block; margin-top: 10px; border: 2px solid var(--main); padding: 8px 18px;
+  .lead { font-size: clamp(19px, 4.6vw, 23px); line-height: 1.45; margin: 0 0 14px; color: var(--bright); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; font-size: 21px; }
+  .tags span { border: 2px solid var(--dim); padding: 0 10px; color: var(--main); }
+  h2 { font-size: 34px; margin: 44px 0 10px; color: var(--main); font-weight: normal; }
+  h2::before { content: "> "; color: var(--dim); }
+  .box { border: 2px solid var(--dim); background: var(--panel); padding: 14px 18px; margin: 16px 0; }
+  .box.amber { border-color: var(--amber); }
+  .box p { margin: 0 0 10px; } .box p:last-child { margin-bottom: 0; }
+  .hero { display: grid; grid-template-columns: minmax(0, 300px) 1fr; gap: 20px; align-items: start; }
+  .hero video { width: 100%; display: block; border: 2px solid var(--dim); background: #000; }
+  .cap { color: var(--soft); font-size: 15px; margin-top: 6px; }
+  .hero p { margin: 0 0 6px; }
+  ul.list { padding-left: 1.1em; margin: 0; }
+  ul.list li { margin: 4px 0; }
+  ul.list li::marker { color: var(--main); }
+  .strip { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; scrollbar-color: var(--dim) var(--bg); }
+  .strip figure { margin: 0; flex: 0 0 auto; width: 210px; scroll-snap-align: start; }
+  .strip img, .strip video { width: 100%; height: auto; display: block; border: 2px solid var(--dim); background: #000; }
+  .strip figcaption { color: var(--soft); font-size: 15px; padding-top: 4px; }
+  .safe { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .safe .box { margin: 0; }
+  .safe h3 { margin: 0 0 6px; font-size: 25px; color: var(--main); font-weight: normal; }
+  table { width: 100%; border-collapse: collapse; font-size: 16px; margin-top: 6px; }
+  th, td { border-bottom: 1px solid var(--grid); padding: 7px 4px; text-align: left; vertical-align: top; }
+  th { color: var(--main); font-weight: normal; white-space: nowrap; padding-right: 14px; }
+  .step { display: grid; grid-template-columns: 56px 1fr; gap: 6px 14px; align-items: start; }
+  .n { font-size: 64px; line-height: 0.8; color: var(--main); }
+  .step h3 { font-size: 28px; margin: 0 0 4px; color: var(--main); font-weight: normal; }
+  .key { display: inline-block; margin-top: 10px; border: 2px solid var(--main); padding: 6px 18px; font-size: 22px;
          text-decoration: none; background: var(--main); color: var(--bg); }
-  ul { list-style: none; padding: 0; margin: 0; }
-  li { padding: 3px 0; }
-  li::before { content: "- "; color: var(--dim); }
-  footer { color: var(--dim); font-size: 18px; margin-top: 40px; }
-  @media (max-width: 520px) { body { font-size: 20px; } .step { grid-template-columns: 44px 1fr; } .n { font-size: 48px; } }
+  footer { color: var(--soft); font-size: 15px; margin-top: 40px; border-top: 1px solid var(--grid); padding-top: 12px; }
+  [data-l="it"] { display: none; }
+  html[lang="it"] [data-l="en"] { display: none; }
+  html[lang="it"] [data-l="it"] { display: revert; }
+  @media (max-width: 640px) {
+    .hero { grid-template-columns: 1fr; } .hero video { max-width: 300px; }
+    .safe { grid-template-columns: 1fr; }
+    .step { grid-template-columns: 40px 1fr; } .n { font-size: 48px; }
+    th { white-space: normal; }
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="bar"><span><a href="./">STLTH://SAMPLER</a> / TEST</span><span></span></div>
+  <div class="bar px">
+    <span><a href="./">STLTH://SAMPLER</a> / TEST</span>
+    <span class="lang"><button type="button" data-set="en" aria-pressed="true">EN</button><button type="button" data-set="it" aria-pressed="false">IT</button></span>
+  </div>
 
-  <h1>BECOME A TESTER</h1>
-  <div class="sub">TRY STLTH BEFORE IT IS OUT. ANDROID. THREE STEPS.</div>
+  <h1 class="px">STLTH IS A MUSIC APP</h1>
+  <p class="lead" data-l="en">A sampler and beat maker for Android phones. Load or record sounds, put them on 16 pads, make patterns and songs, mix them and export them. It is about to come out on Google Play, and you are invited to try it first.</p>
+  <p class="lead" data-l="it">Un campionatore e beat maker per telefoni Android. Carichi o registri suoni, li metti su 16 pad, crei pattern e canzoni, li mixi e li esporti. Sta per uscire su Google Play e sei invitato a provarlo prima.</p>
+  <div class="tags px"><span>ANDROID</span><span>GOOGLE PLAY</span><span>FREE</span><span>NO ADS</span><span>NO ACCOUNT</span></div>
 
-  <div class="box step">
-    <div class="n">1</div>
+  <div class="box amber">
+    <p data-l="en"><strong>Why this page:</strong> Google Play publishes a new app only after a group of real people has used a test version for 14 days. This page explains what STLTH is and how to join that test. You install the app <strong>from Google Play</strong>, like any other app: there is no file to download from this site.</p>
+    <p data-l="it"><strong>Perché questa pagina:</strong> Google Play pubblica una nuova app solo dopo che un gruppo di persone reali ha usato una versione di prova per 14 giorni. Questa pagina spiega cos'è STLTH e come entrare nel test. L'app si installa <strong>da Google Play</strong>, come qualsiasi altra: da questo sito non si scarica nessun file.</p>
+  </div>
+
+  <h2 class="px">SEE IT</h2>
+  <div class="hero">
     <div>
-      <h2>JOIN THE GROUP OF THE TESTERS</h2>
-      <div>OPEN THE GROUP AND TAP "JOIN GROUP" (ISCRIVITI AL GRUPPO).</div>
-      <div class="it">ENTRA NEL GRUPPO DEI TESTER.</div>
-      <a class="key" href="https://groups.google.com/g/stlth-testers">1. JOIN THE GROUP</a>
+      <video src="videos/01_kits_and_jam.mp4" poster="img/test/v01.jpg" controls preload="none" playsinline></video>
+      <div class="cap" data-l="en">The demo kits: tap the pads, the loops start in time. (Sound on.)</div>
+      <div class="cap" data-l="it">I kit demo: tocchi i pad, i loop partono a tempo. (Con l'audio.)</div>
+    </div>
+    <div>
+      <div data-l="en">
+        <p>What you can do with it:</p>
+        <ul class="list">
+          <li><strong>Pads:</strong> 16 pads, each with its own sound, cut, pitch and effects.</li>
+          <li><strong>Sample:</strong> record from the microphone, or open audio files from your phone, and chop them onto the pads.</li>
+          <li><strong>Patterns:</strong> a step sequencer for drums and a piano roll for melodies.</li>
+          <li><strong>Song:</strong> line patterns up into a full song.</li>
+          <li><strong>Mixer and effects:</strong> EQ, compressor, delay, reverb and more on every pad.</li>
+          <li><strong>DJ:</strong> two decks to mix your tracks live.</li>
+          <li><strong>Export:</strong> WAV and video, to share your music.</li>
+          <li><strong>Learn:</strong> seven demo kits by genre (hip hop, trap, drill, lo-fi, house, reggaeton, EDM) and a tutorial made of short missions.</li>
+        </ul>
+      </div>
+      <div data-l="it">
+        <p>Cosa ci puoi fare:</p>
+        <ul class="list">
+          <li><strong>Pad:</strong> 16 pad, ognuno con il suo suono, taglio, intonazione ed effetti.</li>
+          <li><strong>Campionamento:</strong> registri dal microfono o apri file audio del telefono, e li tagli sui pad.</li>
+          <li><strong>Pattern:</strong> uno step sequencer per le batterie e un piano roll per le melodie.</li>
+          <li><strong>Song:</strong> metti in fila i pattern per fare una canzone intera.</li>
+          <li><strong>Mixer ed effetti:</strong> EQ, compressore, delay, riverbero e altro su ogni pad.</li>
+          <li><strong>DJ:</strong> due deck per mixare dal vivo le tue tracce.</li>
+          <li><strong>Export:</strong> WAV e video, per condividere la tua musica.</li>
+          <li><strong>Per imparare:</strong> sette kit demo per genere (hip hop, trap, drill, lo-fi, house, reggaeton, EDM) e un tutorial a piccole missioni.</li>
+        </ul>
+      </div>
     </div>
   </div>
 
-  <div class="box step">
-    <div class="n">2</div>
-    <div>
-      <h2>JOIN THE TEST</h2>
-      <div>OPEN THE PAGE OF THE TEST AND ACCEPT ("BECOME A TESTER").</div>
-      <div class="it">ADERISCI AL TEST.</div>
-      <a class="key" href="https://play.google.com/apps/testing/com.michelebonomi.stlth">2. JOIN THE TEST</a>
-    </div>
+  <h2 class="px">SCREENS</h2>
+  <div class="strip">
+    <figure><img src="img/test/02_home.png" alt="The 16 pads of STLTH with a demo kit loaded" loading="lazy" width="540" height="1080"><figcaption data-l="en">The pads</figcaption><figcaption data-l="it">I pad</figcaption></figure>
+    <figure><img src="img/test/04_pat.png" alt="The step sequencer of STLTH" loading="lazy" width="540" height="1080"><figcaption data-l="en">Patterns</figcaption><figcaption data-l="it">I pattern</figcaption></figure>
+    <figure><img src="img/test/03_sample.png" alt="The sound settings of a pad" loading="lazy" width="540" height="1080"><figcaption data-l="en">The sound of a pad</figcaption><figcaption data-l="it">Il suono di un pad</figcaption></figure>
+    <figure><img src="img/test/06_mixer.png" alt="The mixer of STLTH" loading="lazy" width="540" height="1080"><figcaption data-l="en">The mixer</figcaption><figcaption data-l="it">Il mixer</figcaption></figure>
+    <figure><img src="img/test/08_fx.png" alt="The effects of the master" loading="lazy" width="540" height="1080"><figcaption data-l="en">Effects</figcaption><figcaption data-l="it">Gli effetti</figcaption></figure>
+    <figure><img src="img/test/07_dj.png" alt="The two DJ decks" loading="lazy" width="540" height="1080"><figcaption data-l="en">DJ decks</figcaption><figcaption data-l="it">I deck DJ</figcaption></figure>
   </div>
 
-  <div class="box step">
-    <div class="n">3</div>
-    <div>
-      <h2>INSTALL STLTH</h2>
-      <div>ON YOUR ANDROID PHONE, FROM GOOGLE PLAY.</div>
-      <div class="it">INSTALLA L'APP DAL PLAY STORE.</div>
-      <a class="key" href="https://play.google.com/store/apps/details?id=com.michelebonomi.stlth">3. INSTALL</a>
+  <h2 class="px">MORE VIDEOS</h2>
+  <div class="strip">
+    <figure><video src="videos/02_piano_roll_keys.mp4" poster="img/test/v02.jpg" controls preload="none" playsinline></video><figcaption data-l="en">Piano roll</figcaption><figcaption data-l="it">Piano roll</figcaption></figure>
+    <figure><video src="videos/07_the_song.mp4" poster="img/test/v07.jpg" controls preload="none" playsinline></video><figcaption data-l="en">From patterns to a song</figcaption><figcaption data-l="it">Dai pattern alla canzone</figcaption></figure>
+    <figure><video src="videos/03_piano_over_a_loop.mp4" poster="img/test/v03.jpg" controls preload="none" playsinline></video><figcaption data-l="en">Playing over a loop</figcaption><figcaption data-l="it">Suonare sopra un loop</figcaption></figure>
+    <figure><video src="videos/05_the_demos.mp4" poster="img/test/v05.jpg" controls preload="none" playsinline></video><figcaption data-l="en">The seven demos</figcaption><figcaption data-l="it">Le sette demo</figcaption></figure>
+  </div>
+
+  <h2 class="px">IS IT SAFE?</h2>
+  <div class="safe">
+    <div class="box">
+      <h3 class="px">FROM GOOGLE PLAY ONLY</h3>
+      <p data-l="en">STLTH is published through Google Play and installed only from the Play Store, so it goes through Google's review and Play Protect like every app there. You never install a file from a website.</p>
+      <p data-l="it">STLTH è pubblicata su Google Play e si installa solo dal Play Store, quindi passa dalla revisione di Google e da Play Protect come ogni app che trovi lì. Non installi mai un file da un sito.</p>
+    </div>
+    <div class="box">
+      <h3 class="px">NOTHING ABOUT YOU</h3>
+      <p data-l="en">No ads, no analytics, no tracking, no account to create. What you make stays on your phone. Details in the <a href="privacy.html">privacy policy</a>.</p>
+      <p data-l="it">Niente pubblicità, statistiche o tracciamento, nessun account da creare. Quello che fai resta sul tuo telefono. I dettagli sono nella <a href="privacy.html">privacy policy</a> (in inglese).</p>
+    </div>
+    <div class="box">
+      <h3 class="px">THE GOOGLE GROUP</h3>
+      <p data-l="en">Step 1 is a Google Group: Google Play uses it only as the list of the people allowed to install the test version.</p>
+      <p data-l="it">Il passo 1 è un Google Group: Google Play lo usa solo come elenco delle persone autorizzate a installare la versione di prova.</p>
+    </div>
+    <div class="box">
+      <h3 class="px">WHO MADE IT</h3>
+      <p data-l="en">Michele Bonomi, an independent developer. Questions: <a href="mailto:michele.bonomi00@gmail.com">michele.bonomi00@gmail.com</a>. More about the app: <a href="./">the STLTH page</a>.</p>
+      <p data-l="it">Michele Bonomi, sviluppatore indipendente. Domande: <a href="mailto:michele.bonomi00@gmail.com">michele.bonomi00@gmail.com</a>. Altro sull'app: <a href="./">la pagina di STLTH</a>.</p>
     </div>
   </div>
 
   <div class="box">
-    <ul>
-      <li>USE THE SAME GOOGLE ACCOUNT OF YOUR PHONE FOR EVERY STEP</li>
-      <li>"APP NOT AVAILABLE" AT STEP 2 OR 3 = AN EARLIER STEP IS MISSING, OR ANOTHER ACCOUNT</li>
-      <li>STAY IN THE TEST FOR AT LEAST 14 DAYS: IT IS WHAT LETS STLTH COME OUT</li>
-      <li>IT IS A TEST VERSION: BUGS AND IDEAS <a href="./#feedback">HERE</a></li>
+    <p data-l="en">The permissions it asks for, and why. Each one is asked when you first use that feature, and you can say no.</p>
+    <p data-l="it">I permessi che chiede, e perché. Ognuno viene chiesto la prima volta che usi quella funzione, e puoi rifiutare.</p>
+    <table data-l="en">
+      <tr><th>Microphone</th><td>To record the sounds you choose to record.</td></tr>
+      <tr><th>Music and audio</th><td>To open the audio files you choose, and keep your projects in Documents/STLTH.</td></tr>
+      <tr><th>Photos</th><td>Only if you pick a picture for the look of the app.</td></tr>
+      <tr><th>Internet</th><td>Google Play purchases, and reading the news and the latest version from this site. Nothing about you is sent.</td></tr>
+    </table>
+    <table data-l="it">
+      <tr><th>Microfono</th><td>Per registrare i suoni che scegli di registrare.</td></tr>
+      <tr><th>Musica e audio</th><td>Per aprire i file audio che scegli e tenere i tuoi progetti in Documents/STLTH.</td></tr>
+      <tr><th>Foto</th><td>Solo se scegli un'immagine per l'aspetto dell'app.</td></tr>
+      <tr><th>Internet</th><td>Acquisti tramite Google Play, e lettura delle novità e dell'ultima versione da questo sito. Non viene inviato nulla su di te.</td></tr>
+    </table>
+  </div>
+
+  <h2 class="px" id="join">JOIN THE TEST</h2>
+  <p data-l="en">Three steps, about two minutes. Use the same Google account of your phone for all of them.</p>
+  <p data-l="it">Tre passi, circa due minuti. Usa per tutti lo stesso account Google del tuo telefono.</p>
+
+  <div class="box step">
+    <div class="n px">1</div>
+    <div>
+      <h3 class="px">JOIN THE GROUP OF THE TESTERS</h3>
+      <div data-l="en">Open the group and tap "Join group".</div>
+      <div data-l="it">Apri il gruppo e tocca "Iscriviti al gruppo".</div>
+      <a class="key px" href="https://groups.google.com/g/stlth-testers">1. JOIN THE GROUP</a>
+    </div>
+  </div>
+
+  <div class="box step">
+    <div class="n px">2</div>
+    <div>
+      <h3 class="px">JOIN THE TEST</h3>
+      <div data-l="en">Open the test page on Google Play and accept ("Become a tester").</div>
+      <div data-l="it">Apri la pagina del test su Google Play e accetta ("Diventa un tester").</div>
+      <a class="key px" href="https://play.google.com/apps/testing/com.michelebonomi.stlth">2. JOIN THE TEST</a>
+    </div>
+  </div>
+
+  <div class="box step">
+    <div class="n px">3</div>
+    <div>
+      <h3 class="px">INSTALL STLTH</h3>
+      <div data-l="en">On your Android phone, from the Play Store.</div>
+      <div data-l="it">Sul tuo telefono Android, dal Play Store.</div>
+      <a class="key px" href="https://play.google.com/store/apps/details?id=com.michelebonomi.stlth">3. INSTALL</a>
+    </div>
+  </div>
+
+  <div class="box">
+    <ul class="list" data-l="en">
+      <li>"App not available" at step 2 or 3 means an earlier step is missing, or another Google account is in use.</li>
+      <li>Keep the app installed for at least 14 days: that is what lets it come out on Google Play.</li>
+      <li>It is a test version: bugs and ideas <a href="./#feedback">here</a>.</li>
+    </ul>
+    <ul class="list" data-l="it">
+      <li>"App non disponibile" al passo 2 o 3 vuol dire che manca un passo precedente, o che è in uso un altro account Google.</li>
+      <li>Tieni l'app installata per almeno 14 giorni: è quello che le permette di uscire su Google Play.</li>
+      <li>È una versione di prova: bug e idee <a href="./#feedback">qui</a>.</li>
     </ul>
   </div>
 
-  <footer>STLTH://SAMPLER - MADE BY MICHELE BONOMI - <a href="privacy.html">PRIVACY</a></footer>
+  <footer>STLTH://SAMPLER &middot; Michele Bonomi &middot; <a href="./">STLTH</a> &middot; <a href="manual.pdf">Manual (PDF)</a> &middot; <a href="privacy.html">Privacy</a></footer>
 </div>
+<script>
+  // EN / IT: the language of the browser first, a tap to change it
+  (function () {
+    var set = function (l) {
+      document.documentElement.lang = l;
+      document.querySelectorAll('.lang button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.set === l ? 'true' : 'false'); });
+    };
+    document.querySelectorAll('.lang button').forEach(function (b) { b.addEventListener('click', function () { set(b.dataset.set); }); });
+    var nav = (navigator.language || 'en').toLowerCase();
+    set(nav.indexOf('it') === 0 ? 'it' : 'en');
+  })();
+</script>
 </body>
 </html>
