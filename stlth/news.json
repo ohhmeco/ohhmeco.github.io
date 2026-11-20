@@ -9,5 +9,10 @@
     "PAD BANKS: A B C D, 64 PADS (PRO / SUB)",
     "",
     "SUB GETS THEM FIRST."
-  ]
+  ],
+  "message": {
+    "id": "",
+    "title": "",
+    "text": ""
+  }
 }
