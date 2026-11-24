@@ -117,6 +117,15 @@
       <div class="where">Università degli Studi di Milano</div>
     </div>
   </div>
+  <div class="box entry">
+    <div class="when">Bachelor's</div>
+    <div>
+      <h3>Bachelor's degree in Music Computer Science</h3>
+      <div class="where">Università degli Studi di Milano</div>
+      <div class="where">Thesis: "Sviluppo di un sample player per dispositivi mobili" (Development of a sample player for mobile devices)</div>
+      <div class="where">Supervisor: Prof. Federico Avanzini - Co-supervisor: Prof. Giorgio Presti</div>
+    </div>
+  </div>
 
   <h2 id="projects" class="px">Projects</h2>
   <a class="box project" href="stlth/">
@@ -127,6 +136,22 @@
       <p>A music production app: sampler with 16 pads, pattern sequencer and song arrangement, mixer with effects,
          two DJ decks, WAV and video export. Real-time audio engine, digital signal processing and the full release on Google Play.</p>
       <span class="go px">The page of STLTH &gt;</span>
+    </div>
+  </a>
+
+  <a class="box project" href="https://github.com/ohhmeco/quantum-sentiment-analysis">
+    <img src="img/qsa.svg" alt="One qubit holding the sentiment of a sentence">
+    <div>
+      <h3>Quantum Sentiment Analysis: how much sentiment fits in one qubit?</h3>
+      <div class="meta">Python - Qiskit - NLP course project, Università degli Studi di Milano, A.Y. 2025/26</div>
+      <p>Sentence embeddings (GloVe-SIF, BERT, Sentence-BERT) are compressed to 2<sup>n</sup> numbers, amplitude-encoded into n qubits
+         and classified by the interference circuit of Schuld et al. (2017) on SST-2. The question: how much binary sentiment can be read
+         out of a single data qubit, at what cost, and what each additional qubit buys.</p>
+      <p>With Sentence-BERT and a Fisher ranking of the principal directions, one data qubit keeps 95% of the full-embedding accuracy
+         (0.840 vs 0.887). At one qubit quantum and classical rules agree within a point; the circuit is cheap (4 qubits, about 11 shots
+         for a 95%-reliable decision, no measurable loss under an IBM Heron noise model), and more qubits buy at most a few points
+         for many more gates, shots and noise.</p>
+      <span class="go px">The code and the report on GitHub &gt;</span>
     </div>
   </a>
 

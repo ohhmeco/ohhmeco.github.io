@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" shape-rendering="crispEdges">
+  <!-- one qubit (a Bloch sphere) and the sentiment it holds: |+> positive, |-> negative -->
+  <rect width="160" height="120" fill="#07120a"/>
+  <circle cx="70" cy="60" r="40" fill="none" stroke="#2c8a49" stroke-width="3"/>
+  <ellipse cx="70" cy="60" rx="40" ry="12" fill="none" stroke="#2c8a49" stroke-width="2" stroke-dasharray="4 4"/>
+  <line x1="70" y1="16" x2="70" y2="104" stroke="#2c8a49" stroke-width="2"/>
+  <line x1="70" y1="60" x2="98" y2="32" stroke="#39ff6a" stroke-width="4"/>
+  <rect x="94" y="28" width="9" height="9" fill="#39ff6a"/>
+  <text x="122" y="40" fill="#39ff6a" font-family="monospace" font-size="22" font-weight="bold">+</text>
+  <text x="122" y="94" fill="#ffb000" font-family="monospace" font-size="22" font-weight="bold">-</text>
+</svg>
